@@ -1,6 +1,6 @@
-// Checker.java : class for filtering KD-Tree matches by usability
+// EuclideanDistance.java : Class for Euclidean distance metric
 //
-// Copyright (C) Michael Lorton and Simon D. Levy 2014
+// Copyright (C) Simon D. Levy 2014
 //
 // This code is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as 
@@ -21,8 +21,25 @@
 // and
 //   <https://projects.ardrone.org/attachments/278/ParrotCopyrightAndDisclaimer.txt>.
 
-package de.biomedical_imaging.edu.wlu.cs.levy.CG;
+package edu.wlu.cs.levy.CG;
 
-public interface Checker<T> {
-    public boolean usable(T v);
+class EuclideanDistance extends DistanceMetric {
+    
+    protected double distance(double [] a, double [] b)  {
+	
+	return Math.sqrt(sqrdist(a, b));
+	
+    }
+    
+    protected static double sqrdist(double [] a, double [] b) {
+
+	double dist = 0;
+
+	for (int i=0; i<a.length; ++i) {
+	    double diff = (a[i] - b[i]);
+	    dist += diff*diff;
+	}
+
+	return dist;
+    }     
 }

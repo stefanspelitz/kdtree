@@ -1,4 +1,4 @@
-package de.biomedical_imaging.edu.wlu.cs.levy.CG;
+package edu.wlu.cs.levy.CG;
 
 import java.io.Serializable;
 import java.util.List;

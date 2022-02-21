@@ -1,6 +1,6 @@
-// KeyMissingException.java : cKey-size mismatch exception supporting KDTree class
+// Checker.java : class for filtering KD-Tree matches by usability
 //
-// Copyright (C) Simon D. Levy 2014
+// Copyright (C) Michael Lorton and Simon D. Levy 2014
 //
 // This code is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as 
@@ -21,15 +21,8 @@
 // and
 //   <https://projects.ardrone.org/attachments/278/ParrotCopyrightAndDisclaimer.txt>.
 
-package de.biomedical_imaging.edu.wlu.cs.levy.CG;
+package edu.wlu.cs.levy.CG;
 
-public class KeyMissingException extends KDException {  /* made public by MSL */
-
-    public KeyMissingException() {
-	super("Key not found");
-    }
-    
-    // arbitrary; every serializable class has to have one of these
-    public static final long serialVersionUID = 3L;
-    
+public interface Checker<T> {
+    public boolean usable(T v);
 }
